@@ -48,7 +48,6 @@ function initMap() {
 			if (this.readyState == 4 && this.status == 200) {
 			   // Typical action to be performed when the document is ready:
 			   console.log(xhttp.responseText);
-			   document.getElementById("demo").innerHTML = xhttp.responseText;
 			}
 		};
 		var params = "&coordinates=46,-91";
@@ -81,9 +80,12 @@ function initMap() {
 			if (this.readyState == 4 && this.status == 200) {
 			   // Typical action to be performed when the document is ready:
 			   console.log(xhttp.responseText);
-			   document.getElementById("demo").innerHTML = xhttp.responseText;
+			   var obj = JSON.parse(xhttp.responseText);
+			   var table = document.getElementById("myTable");
+			   var row = table.insertRow(1);
+			   var cell = row.insertCell(0);
+			   cell.innerHTML = obj.city;
 			}
-			
 		};
 		var params = "&coordinates=" + latitude + "," + longitude;
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
