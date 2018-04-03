@@ -82,9 +82,9 @@ function initMap() {
 			   console.log(xhttp.responseText);
 			   var obj = JSON.parse(xhttp.responseText);
 			   var table = document.getElementById("myTable");
-			   var row = table.insertRow(1);
 			   
 			   if(typeof obj.results[0].city !== 'undefined'){
+				   var row = table.insertRow(1);
 					var cell = row.insertCell(0);
 					cell.innerHTML = obj.results[0].city;
 			   }
