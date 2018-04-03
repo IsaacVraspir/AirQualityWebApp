@@ -7,7 +7,7 @@ function initMap() {
 	
 	
 	if(isNaN(latitude) == true && isNaN(longitude) == true){ //Before adding a marker
-		var uluru = {lat: 44.96, lng: -93.21};
+		var uluru = {lat: 44.96, lng: -93.26};
 		var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 4,
 				center: uluru
@@ -22,6 +22,38 @@ function initMap() {
 			document.getElementById("latitude").value = mylat;
 			document.getElementById("longitude").value = mylng;
 		});
+		
+		var latlng = {lat: 44.96, lng: -93.26};
+		geocoder.geocode({'location': latlng}, function(results, status) {
+			if (status === 'OK') {
+				if (results[0]) {
+					map.setZoom(11);
+					var marker = new google.maps.Marker({
+						position: latlng,
+						map: map
+					});
+					infowindow.setContent(results[0].formatted_address);
+					infowindow.open(map, marker);
+				} else {
+					window.alert('No results found');
+				}
+			} else {
+				window.alert('Geocoder failed due to: ' + status);
+			}
+		});
+		geocodeLatLng(geocoder, map, infowindow);
+		
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			   // Typical action to be performed when the document is ready:
+			   document.getElementById("demo").innerHTML = xhttp.responseText;
+			}
+		};
+		var params = "&coordinates=46,-91";
+		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
+		xhttp.send();
+		
 		
 		
 	}else{ //After adding a marker
@@ -42,6 +74,17 @@ function initMap() {
 		});
 		
 		geocodeLatLng(geocoder, map, infowindow);
+		
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			   // Typical action to be performed when the document is ready:
+			   document.getElementById("demo").innerHTML = xhttp.responseText;
+			}
+		};
+		var params = "&coordinates=" + latitude + "," + longitude;
+		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
+		xhttp.send();
 	}
 }
 
