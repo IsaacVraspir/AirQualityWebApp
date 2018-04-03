@@ -84,7 +84,7 @@ function initMap() {
 			   var table = document.getElementById("myTable");
 			   var row = table.insertRow(1);
 			   var cell = row.insertCell(0);
-			   cell.innerHTML = obj.city;
+			   cell.innerHTML = obj.results[1];
 			}
 		};
 		var params = "&coordinates=" + latitude + "," + longitude;
