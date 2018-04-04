@@ -73,7 +73,10 @@ function initMap() {
 				   }
 				}
 			};
-			var params = "&coordinates=" + mylat + "," + mylng;
+			var latitude = parseFloat(document.getElementById("latitude").value);
+			var longitude = parseFloat(document.getElementById("longitude").value);
+			
+			var params = "&coordinates=" + latitude + "," + longitude;
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
 		});
@@ -180,7 +183,10 @@ function initMap() {
 				   }
 				}
 			};
-			var params = "&coordinates=" + mylat + "," + mylng;
+			var latitude = parseFloat(document.getElementById("latitude").value);
+			var longitude = parseFloat(document.getElementById("longitude").value);
+	
+			var params = "&coordinates=" + latitude + "," + longitude;
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
 		});
