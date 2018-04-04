@@ -108,7 +108,7 @@ function initMap() {
 			   console.log(xhttp.responseText);
 			}
 		};
-		var params = "&coordinates=46,-91";
+		var params = "&coordinates=44.96,-93.26";
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
 		
