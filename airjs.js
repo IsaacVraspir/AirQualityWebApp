@@ -32,7 +32,7 @@ function initMap() {
 				   var obj = JSON.parse(xhttp.responseText);
 				   var table = document.getElementById("currentTable");
 				   
-				   if(typeof obj.results[0].city !== 'undefined'){
+				   if(obj.results[0].city){
 						table.innerHTML = "";
 						var row = table.insertRow(0);
 						row.insertCell(0).outerHTML = "<th>City</th>";
