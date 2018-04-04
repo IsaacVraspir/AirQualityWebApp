@@ -42,6 +42,14 @@ function initMap() {
 							row = table.insertRow(i+1);
 							var cell = row.insertCell(0);
 							cell.innerHTML = obj.results[i].city;
+							cell = row.insertCell(1);
+							cell.innerHTML = obj.results[i].measurements[0].value;
+							
+							var uluru = {lat: obj.results[i].coordinates.latitude, lng: obj.results[i].coordinates.longitude};
+							var marker = new google.maps.Marker({
+								position: uluru,
+								map: map
+							})
 						}	
 					}else{
 						table.innerHTML = "";
