@@ -21,7 +21,7 @@ function initMap() {
 			var mylng = map.getCenter().lng();
 			document.getElementById("latitude").value = mylat;
 			document.getElementById("longitude").value = mylng;
-			
+		/*	
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
@@ -47,8 +47,9 @@ function initMap() {
 			var params = "&coordinates=" + mylat + "," + mylng;
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
+			*/
 		});
-		/*
+		
 		map.addListener('idle', function(){
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -76,7 +77,7 @@ function initMap() {
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
 		});
-		*/
+		
 		var latlng = {lat: 44.96, lng: -93.26};
 		geocoder.geocode({'location': latlng}, function(results, status) {
 			if (status === 'OK') {
@@ -126,6 +127,7 @@ function initMap() {
 			document.getElementById("latitude").value = mylat;
 			document.getElementById("longitude").value = mylng;
 			
+			/*
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
@@ -151,9 +153,10 @@ function initMap() {
 			var params = "&coordinates=" + mylat + "," + mylng;
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
+			*/
 		});
 		
-		/*
+		
 		map.addListener('idle', function(){
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -174,7 +177,7 @@ function initMap() {
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
 		});
-		*/
+		
 		
 		geocodeLatLng(geocoder, map, infowindow);
 		
