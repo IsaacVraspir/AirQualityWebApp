@@ -116,10 +116,9 @@ function initMap() {
 				   
 				   if(typeof obj.results[0].city !== 'undefined'){
 						table.innerHTML = "";
-						var header = table.createTHead();
 						var row = table.insertRow(0);
 						var cell = row.insertCell(0);
-						header.innerHTML = "City";
+						row.insertCell(0).outerHTML = "<th>City</th>";
 						header = table.createTHead();
 						header.innerHTML = "Measurement";
 						
