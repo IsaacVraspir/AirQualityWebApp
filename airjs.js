@@ -125,8 +125,35 @@ function initMap() {
 			var mylng = map.getCenter().lng();
 			document.getElementById("latitude").value = mylat;
 			document.getElementById("longitude").value = mylng;
+			
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				   // Typical action to be performed when the document is ready:
+				   console.log(xhttp.responseText);
+				   var obj = JSON.parse(xhttp.responseText);
+				   var table = document.getElementById("currentTable");
+				   
+				   if(typeof obj.results[0].city !== 'undefined'){
+						table.innerHTML = "";
+						var row = table.insertRow(0);
+						var cell = row.insertCell(0);
+						cell.innerHTML = "City";
+						cell = row.insertCell(1);
+						cell.innerHTML = "Measurement";
+						
+						row = table.insertRow(1);
+						cell = row.insertCell(0);
+						cell.innerHTML = obj.results[0].city;
+				   }
+				}
+			};
+			var params = "&coordinates=" + mylat + "," + mylng;
+			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
+			xhttp.send();
 		});
 		
+		/*
 		map.addListener('idle', function(){
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -147,6 +174,7 @@ function initMap() {
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
 		});
+		*/
 		
 		geocodeLatLng(geocoder, map, infowindow);
 		
@@ -159,7 +187,7 @@ function initMap() {
 			   var table = document.getElementById("myTable");
 			   
 			   if(typeof obj.results[0].city !== 'undefined'){
-				   var row = table.insertRow(1);
+				    var row = table.insertRow(1);
 					var cell = row.insertCell(0);
 					cell.innerHTML = obj.results[0].city;
 			   }
@@ -168,6 +196,7 @@ function initMap() {
 		var params = "&coordinates=" + latitude + "," + longitude;
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
+		
 	}
 }
 
