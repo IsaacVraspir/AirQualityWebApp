@@ -37,7 +37,7 @@ function initMap() {
 						var row = table.insertRow(0);
 						row.insertCell(0).outerHTML = "<th>City</th>";
 						row.insertCell(1).outerHTML = "<th>Measurement</th>";
-						
+						console.log(obj.results.length);
 						for(var i = 0; i < obj.results.length; i++){
 							row = table.insertRow(i+1);
 							var cell = row.insertCell(0);
