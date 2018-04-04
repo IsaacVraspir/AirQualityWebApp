@@ -46,7 +46,7 @@ function initMap() {
 			var latitude = parseFloat(document.getElementById("latitude").value);
 			var longitude = parseFloat(document.getElementById("longitude").value);
 			
-			var params = "&coordinates=" + latitude + "," + longitude;
+			var params = "&coordinates=" + latitude + "," + longitude + "&radius=5000";
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
 		});
@@ -78,7 +78,7 @@ function initMap() {
 			   console.log(xhttp.responseText);
 			}
 		};
-		var params = "&coordinates=44.96,-93.26";
+		var params = "&coordinates=44.96,-93.26" + "&radius=5000";
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
 		
@@ -125,7 +125,7 @@ function initMap() {
 			var latitude = parseFloat(document.getElementById("latitude").value);
 			var longitude = parseFloat(document.getElementById("longitude").value);
 	
-			var params = "&coordinates=" + latitude + "," + longitude;
+			var params = "&coordinates=" + latitude + "," + longitude + "&radius=5000";
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
 		});
@@ -144,8 +144,8 @@ function initMap() {
 			   if(typeof obj.results[0].city !== 'undefined'){
 				    table.innerHTML = "";
 					var row = table.insertRow(0);
-					row.insertCell(0).outerHTML = "<th>City</th>";
-					row.insertCell(1).outerHTML = "<th>Measurement</th>";
+					row.insertCell(0).outerHTML = "<th>Marker City</th>";
+					row.insertCell(1).outerHTML = "<th>Marker Measurement</th>";
 					row = table.insertRow(1);
 					var cell = row.insertCell(0);
 					cell.innerHTML = obj.results[0].city;
@@ -155,7 +155,7 @@ function initMap() {
 		var latitude = parseFloat(document.getElementById("latitude").value);
 		var longitude = parseFloat(document.getElementById("longitude").value);
 		
-		var params = "&coordinates=" + latitude + "," + longitude;
+		var params = "&coordinates=" + latitude + "," + longitude + "&radius=5000";
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
 		
