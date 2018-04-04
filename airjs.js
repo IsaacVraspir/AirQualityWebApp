@@ -117,13 +117,13 @@ function initMap() {
 				   if(typeof obj.results[0].city !== 'undefined'){
 						table.innerHTML = "";
 						var row = table.insertRow(0);
-						var cell = row.insertCell(0);
 						row.insertCell(0).outerHTML = "<th>City</th>";
-						header = table.createTHead();
-						header.innerHTML = "Measurement";
+						row.insertCell(1).outerHTML = "<th>Measurement</th>";
+						row = table.insertRow(1);
+						var cell = row.insertCell(0);
 						
 						//row = table.insertRow(1);
-						cell = row.insertCell(0);
+						//cell = row.insertCell(0);
 						cell.innerHTML = obj.results[0].city;
 				   }
 				}
