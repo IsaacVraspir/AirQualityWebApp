@@ -203,9 +203,21 @@ function initMap() {
 			   var table = document.getElementById("myTable");
 			   
 			   if(typeof obj.results[0].city !== 'undefined'){
-				    var row = table.insertRow(1);
+				    table.innerHTML = "";
+					var row = table.insertRow(0);
+					var cell = row.insertCell(0);
+					cell.innerHTML = "City";
+					cell = row.insertCell(1);
+					cell.innerHTML = "Measurement";
+					
+					row = table.insertRow(1);
+					cell = row.insertCell(0);
+					cell.innerHTML = obj.results[0].city;
+					/*
+					var row = table.insertRow(1);
 					var cell = row.insertCell(0);
 					cell.innerHTML = obj.results[0].city;
+					*/
 			   }
 			}
 		};
