@@ -32,15 +32,18 @@ function initMap() {
 				   var obj = JSON.parse(xhttp.responseText);
 				   var table = document.getElementById("currentTable");
 				   
-				   if(obj.results[0]){
+				    if(obj.results[0]){
 						table.innerHTML = "";
 						var row = table.insertRow(0);
 						row.insertCell(0).outerHTML = "<th>City</th>";
 						row.insertCell(1).outerHTML = "<th>Measurement</th>";
-						row = table.insertRow(1);
-						var cell = row.insertCell(0);
-						cell.innerHTML = obj.results[0].city;
-				   }else{
+						
+						for(var i = 0; i < obj.results.length; i++){
+							row = table.insertRow(i+1);
+							var cell = row.insertCell(0);
+							cell.innerHTML = obj.results[i].city;
+						}	
+					}else{
 						table.innerHTML = "";
 						var row = table.insertRow(0);
 						row.insertCell(0).outerHTML = "<th>City</th>";
