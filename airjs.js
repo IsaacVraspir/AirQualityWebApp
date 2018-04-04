@@ -40,7 +40,17 @@ function initMap() {
 						row = table.insertRow(1);
 						var cell = row.insertCell(0);
 						cell.innerHTML = obj.results[0].city;
-				   }
+				   }else{
+						table.innerHTML = "";
+						var row = table.insertRow(0);
+						row.insertCell(0).outerHTML = "<th>City</th>";
+						row.insertCell(1).outerHTML = "<th>Measurement</th>";
+						row = table.insertRow(1);
+						var cell = row.insertCell(0);
+						cell.innerHTML = "Unknown";
+						cell = row.insertCell(1);
+						cell.innerHTML = "Unknown";
+					}  
 				}
 			};
 			var latitude = parseFloat(document.getElementById("latitude").value);
@@ -119,7 +129,17 @@ function initMap() {
 						row = table.insertRow(1);
 						var cell = row.insertCell(0);
 						cell.innerHTML = obj.results[0].city;
-				   }
+				   }else{
+						table.innerHTML = "";
+						var row = table.insertRow(0);
+						row.insertCell(0).outerHTML = "<th>City</th>";
+						row.insertCell(1).outerHTML = "<th>Measurement</th>";
+						row = table.insertRow(1);
+						var cell = row.insertCell(0);
+						cell.innerHTML = "Unknown";
+						cell = row.insertCell(1);
+						cell.innerHTML = "Unknown";
+					}   
 				}
 			};
 			var latitude = parseFloat(document.getElementById("latitude").value);
