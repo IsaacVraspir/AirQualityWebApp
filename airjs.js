@@ -56,7 +56,7 @@ function initMap() {
 			var latitude = parseFloat(document.getElementById("latitude").value);
 			var longitude = parseFloat(document.getElementById("longitude").value);
 			
-			var params = "&coordinates=" + latitude + "," + longitude + "&radius=5000";
+			var params = "&coordinates=" + latitude + "," + longitude + "&radius=15000";
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
 		});
@@ -88,7 +88,7 @@ function initMap() {
 			   console.log(xhttp.responseText);
 			}
 		};
-		var params = "&coordinates=44.96,-93.26" + "&radius=5000";
+		var params = "&coordinates=44.96,-93.26" + "&radius=15000";
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
 		
@@ -145,7 +145,7 @@ function initMap() {
 			var latitude = parseFloat(document.getElementById("latitude").value);
 			var longitude = parseFloat(document.getElementById("longitude").value);
 	
-			var params = "&coordinates=" + latitude + "," + longitude + "&radius=5000";
+			var params = "&coordinates=" + latitude + "," + longitude + "&radius=15000";
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
 		});
@@ -175,7 +175,7 @@ function initMap() {
 		var latitude = parseFloat(document.getElementById("latitude").value);
 		var longitude = parseFloat(document.getElementById("longitude").value);
 		
-		var params = "&coordinates=" + latitude + "," + longitude + "&radius=5000";
+		var params = "&coordinates=" + latitude + "," + longitude + "&radius=15000";
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
 		
