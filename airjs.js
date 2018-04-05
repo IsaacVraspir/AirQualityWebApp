@@ -98,7 +98,7 @@ function initMap() {
 		map.addListener('click', function(event){
 			var latitude = event.latLng.lat();
 			var longitude = event.latLng.lng();
-			var i = 0;
+			var i = 1;
 			var uluru = {lat: latitude, lng: longitude};
 			var marker = new google.maps.Marker({
 				position: uluru,
@@ -141,6 +141,7 @@ function initMap() {
 			var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt;
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
+			i++;
 }
 
 
