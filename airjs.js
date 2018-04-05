@@ -99,6 +99,7 @@ function initMap() {
 		var longitude = parseFloat(document.getElementById("longitude").value);
 		
 		var valueFrom = document.getElementById("valueFrom").value;
+		console.log(valueFrom);
 		var valueTo = document.getElementById("valueTo").value;
 		
 		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo;
