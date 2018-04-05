@@ -1,4 +1,8 @@
 function initMap() {
+	var d = new Date();
+	var n = d.toISOString();
+	document.getElementById("dateFrom").value = n;
+	
 	var uluru = {lat: 44.96, lng: -93.26};
 	var map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 10,
@@ -111,7 +115,11 @@ function initMap() {
 		console.log(valueFrom);
 		var valueTo = parseFloat(document.getElementById("valueTo").value);
 		
-		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo;
+		var dateTo = new Date();
+		var n = dateTo.toISOString();
+		var dateFrom = document.getElementById("dateFrom").value;
+		
+		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
 		xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
 		xhttp.send();
 	});
@@ -170,7 +178,11 @@ function initMap() {
 		var valueFrom = document.getElementById("valueFrom").value;
 		var valueTo = document.getElementById("valueTo").value;
 		
-		var params = "&coordinates=" + latitude + "," + longitude + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo;
+		var dateTo = new Date();
+		var n = dateTo.toISOString();
+		var dateFrom = document.getElementById("dateFrom").value;
+		
+		var params = "&coordinates=" + latitude + "," + longitude + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
 		xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
 		xhttp.send();
 		i++;
