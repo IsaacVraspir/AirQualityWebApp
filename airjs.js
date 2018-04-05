@@ -1,12 +1,13 @@
 function initMap() {
-	var latitude = parseFloat(document.getElementById("latitude").value);
-	var longitude = parseFloat(document.getElementById("longitude").value);
+	//var latitude = parseFloat(document.getElementById("latitude").value);
+	//var longitude = parseFloat(document.getElementById("longitude").value);
 	
 	var geocoder = new google.maps.Geocoder;
 	var infowindow = new google.maps.InfoWindow;
 	
-	
+	/*
 	if(isNaN(latitude) == true && isNaN(longitude) == true){
+		var uluru = {lat: 44.96, lng: -93.26};
 		var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 10,
 				center: uluru
@@ -19,7 +20,8 @@ function initMap() {
 			document.getElementById("longitude").value = mylng;
 		});
 	}
-	else{	//Before adding a marker
+	*/
+	//else{	//Before adding a marker
 		var uluru = {lat: 44.96, lng: -93.26};
 		var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 10,
@@ -86,8 +88,6 @@ function initMap() {
 					}  
 				}
 			};
-			var latitude = parseFloat(document.getElementById("latitude").value);
-			var longitude = parseFloat(document.getElementById("longitude").value);
 			
 			var bounds = map.getBounds();
 			var center = bounds.getCenter();
@@ -111,12 +111,16 @@ function initMap() {
 			var sel = document.getElementById("optionList");
 			var txt= sel.options[sel.selectedIndex].text;
 			
+			
+			var latitude = parseFloat(document.getElementById("latitude").value);
+			var longitude = parseFloat(document.getElementById("longitude").value);
+			
 			var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt;
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
 		});
 		geocodeLatLng(geocoder, map, infowindow);
-	}	
+	//}	
 }
 /*		
 	}else{ //After adding a marker
