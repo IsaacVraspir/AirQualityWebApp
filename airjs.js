@@ -32,17 +32,23 @@ function initMap() {
 				   var obj = JSON.parse(xhttp.responseText);
 				   var table = document.getElementById("currentTable");
 				   
-				    if(obj.results[0] && obj.results[0].coordinates){
+				    if(obj.results[0] && obj.results[0].coordinates && obj.results[0].city){
 						table.innerHTML = "";
 						var row = table.insertRow(0);
 						row.insertCell(0).outerHTML = "<th>City</th>";
-						row.insertCell(1).outerHTML = "<th>Measurement</th>";
+						row.insertCell(1).outerHTML = "<th>Latitude</th>";
+						row.insertCell(2).outerHTML = "<th>Longitude</th>";
+						row.insertCell(3).outerHTML = "<th>Measurement</th>";
 						console.log(obj.results.length);
 						for(var i = 0; i < obj.results.length; i++){
 							row = table.insertRow(i+1);
 							var cell = row.insertCell(0);
 							cell.innerHTML = obj.results[i].city;
 							cell = row.insertCell(1);
+							obj.results[i].coordinates.latitude;
+							cell = row.insertCell(2);
+							obj.results[i].coordinates.longitude;
+							cell = row.insertCell(3);
 							cell.innerHTML = obj.results[i].measurements[0].value;
 							
 							var uluru = {lat: obj.results[i].coordinates.latitude, lng: obj.results[i].coordinates.longitude};
@@ -55,11 +61,17 @@ function initMap() {
 						table.innerHTML = "";
 						var row = table.insertRow(0);
 						row.insertCell(0).outerHTML = "<th>City</th>";
-						row.insertCell(1).outerHTML = "<th>Measurement</th>";
+						row.insertCell(1).outerHTML = "<th>Latitude</th>";
+						row.insertCell(2).outerHTML = "<th>Longitude</th>";
+						row.insertCell(3).outerHTML = "<th>Measurement</th>";
 						row = table.insertRow(1);
 						var cell = row.insertCell(0);
 						cell.innerHTML = "Unknown";
 						cell = row.insertCell(1);
+						cell.innerHTML = "Unknown";
+						cell = row.insertCell(2);
+						cell.innerHTML = "Unknown";
+						cell = row.insertCell(3);
 						cell.innerHTML = "Unknown";
 					}  
 				}
@@ -87,7 +99,10 @@ function initMap() {
 			
 			var radiusMeters = radiusMiles * 1609.34;
 			
-			var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters;
+			var sel = document.getElementById("optionList");
+			var txt= sel.options[sel.selectedIndex].text;
+			
+			var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt;
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 			xhttp.send();
 		});
