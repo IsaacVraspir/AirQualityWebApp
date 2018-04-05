@@ -215,7 +215,7 @@ function initMap() {
 						row.insertCell(0).outerHTML = "<th>City</th>";
 						row.insertCell(1).outerHTML = "<th>Latitude</th>";
 						row.insertCell(2).outerHTML = "<th>Longitude</th>";
-						row.insertCell(1).outerHTML = "<th>Measurement</th>";
+						row.insertCell(3).outerHTML = "<th>Measurement</th>";
 						row = table.insertRow(1);
 						var cell = row.insertCell(0);
 						cell.innerHTML = "Unknown";
