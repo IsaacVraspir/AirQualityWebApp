@@ -12,10 +12,10 @@ function initMap() {
 				zoom: 4,
 				center: uluru
 		});
-		var marker = new google.maps.Marker({
-			position: uluru,
-			map: map
-		})
+		//var marker = new google.maps.Marker({
+		//	position: uluru,
+		//	map: map
+		//})
 		map.addListener('center_changed', function() {
 			var mylat = map.getCenter().lat();
 			var mylng = map.getCenter().lng();
@@ -92,6 +92,7 @@ function initMap() {
 			xhttp.send();
 		});
 		
+		/*
 		var latlng = {lat: 44.96, lng: -93.26};
 		geocoder.geocode({'location': latlng}, function(results, status) {
 			if (status === 'OK') {
@@ -111,7 +112,9 @@ function initMap() {
 			}
 		});
 		geocodeLatLng(geocoder, map, infowindow);
+		*/
 		
+		/*
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
@@ -119,7 +122,7 @@ function initMap() {
 			   console.log(xhttp.responseText);
 			}
 		};
-		
+		/*
 		var bounds = map.getBounds();
 		var center = bounds.getCenter();
 		var ne = bounds.getNorthEast();
@@ -138,14 +141,17 @@ function initMap() {
 		  Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1));
 		
 		var radiusMeters = radiusMiles * 1609.34;
-		
+		*/
+		/*
 		var params = "&coordinates=44.96,-93.26" + "&radius=" + radiusMeters;
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
-		
+		*/
 		
 		
 	}else{ //After adding a marker
+		var latitude = parseFloat(document.getElementById("latitude").value);
+		var longitude = parseFloat(document.getElementById("longitude").value);
 		var uluru = {lat: latitude, lng: longitude};
 		var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 4,
@@ -286,7 +292,6 @@ function geocodeLatLng(geocoder, map, infowindow) {
 	var latitude = parseFloat(document.getElementById("latitude").value);
 	var longitude = parseFloat(document.getElementById("longitude").value);
 	var latlng = {lat: latitude, lng: longitude};
-
 
 	geocoder.geocode({'location': latlng}, function(results, status) {
 		if (status === 'OK') {
