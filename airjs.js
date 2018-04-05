@@ -100,7 +100,7 @@ function initMap() {
 	map.addListener('click', function(event){
 		var latitude = event.latLng.lat();
 		var longitude = event.latLng.lng();
-		var i = 1;
+		var i = 0;
 		var uluru = {lat: latitude, lng: longitude};
 		var marker = new google.maps.Marker({
 			position: uluru,
