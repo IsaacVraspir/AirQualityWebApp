@@ -84,9 +84,9 @@ function initMap() {
 			// distance = circle radius from center to Northeast corner of bounds
 			var radiusMiles = r * Math.acos(Math.sin(lat1) * Math.sin(lat2) + 
 			  Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1));
-			console.log(radiusCirc);
 			
 			var radiusMeters = radiusMiles * 1609.34;
+			console.log(radiusMeters);
 			
 			var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters;
 			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
