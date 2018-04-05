@@ -108,7 +108,10 @@ function initMap() {
 		
 //	}else{ //After adding a marker
 function addMarker(){
-		var map = document.getElementById('map');
+		var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 10,
+				center: uluru
+		});
 		var latitude = parseFloat(document.getElementById("latitude").value);
 		var longitude = parseFloat(document.getElementById("longitude").value);
 		var uluru = {lat: latitude, lng: longitude};
