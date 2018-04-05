@@ -158,8 +158,7 @@ function initMap() {
 					cell.innerHTML = "Unknown";
 					cell = row.insertCell(3);
 					cell.innerHTML = "Unknown";	
-					}
-			    }
+				}
 			}
 		};
 		var params = "&coordinates=" + latitude + "," + longitude; //Marker uses default radius
