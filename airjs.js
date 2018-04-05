@@ -4,6 +4,8 @@ function initMap() {
 				zoom: 10,
 				center: uluru
 		});
+		var geocoder = new google.maps.Geocoder;
+		var infowindow = new google.maps.InfoWindow;
 		
 		map.addListener('center_changed', function() {
 			var mylat = map.getCenter().lat();
@@ -105,17 +107,17 @@ function initMap() {
 				position: uluru,
 				map: map
 			});
+			geocodeLatLng(geocoder, map, infowindow, latitude, longitude);
 		});
 		
-		var geocoder = new google.maps.Geocoder;
-		var infowindow = new google.maps.InfoWindow;
-		geocodeLatLng(geocoder, map, infowindow);
+		
+		
 }
 
 
-function geocodeLatLng(geocoder, map, infowindow) {
-	var latitude = parseFloat(document.getElementById("latitude").value);
-	var longitude = parseFloat(document.getElementById("longitude").value);
+function geocodeLatLng(geocoder, map, infowindow, latitude, longitude {
+	//var latitude = parseFloat(document.getElementById("latitude").value);
+	//var longitude = parseFloat(document.getElementById("longitude").value);
 	var latlng = {lat: latitude, lng: longitude};
 
 	geocoder.geocode({'location': latlng}, function(results, status) {
