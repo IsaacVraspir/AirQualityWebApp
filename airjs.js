@@ -98,7 +98,10 @@ function initMap() {
 		var latitude = parseFloat(document.getElementById("latitude").value);
 		var longitude = parseFloat(document.getElementById("longitude").value);
 		
-		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt;
+		var valueFrom = document.getElementById("valueFrom").value);
+		var valueTo = document.getElementById("valueTo").value);
+		
+		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo;
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
 	});
@@ -154,7 +157,10 @@ function initMap() {
 		var sel = document.getElementById("optionList");
 		var txt= sel.options[sel.selectedIndex].text;
 		
-		var params = "&coordinates=" + latitude + "," + longitude + "&parameter=" + txt;
+		var valueFrom = document.getElementById("valueFrom").value);
+		var valueTo = document.getElementById("valueTo").value);
+		
+		var params = "&coordinates=" + latitude + "," + longitude + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo;
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
 		i++;
