@@ -18,9 +18,15 @@
     Latitude: <input type="number" name="latitude" id="latitude">
 	Longitude: <input type="number" name="longitude" id="longitude">
 	
-	
-	
-	
+	<select id="optionList">
+		<option value="pm25">pm25</option>
+		<option value="pm10">pm10</option>
+		<option value="so2">so2</option>
+		<option value="no2">no2</option>
+		<option value="o3">o3</option>
+		<option value="co">co</option>
+		<option value="bc">bc</option>
+	</select>
 	
 	<table id="myTable" style="width:100%">
 	<tr>
@@ -39,18 +45,6 @@
 		<th>Measurement</th>
 		<th>Chemical</th>
 	</tr>
-	
-	<select id="optionList">
-		<option value="pm25">pm25</option>
-		<option value="pm10">pm10</option>
-		<option value="so2">so2</option>
-		<option value="no2">no2</option>
-		<option value="o3">o3</option>
-		<option value="co">co</option>
-		<option value="bc">bc</option>
-	</select>
-	
-	
 	
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaM70DtFyB0pO6GHjaczgKIBpPFK7TnBU&callback=initMap">
