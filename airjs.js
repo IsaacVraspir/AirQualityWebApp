@@ -110,7 +110,7 @@ function initMap() {
 		var valueTo = parseFloat(document.getElementById("valueTo").value);
 		
 		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo;
-		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
+		xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
 		xhttp.send();
 	});
 	
@@ -169,7 +169,7 @@ function initMap() {
 		var valueTo = document.getElementById("valueTo").value;
 		
 		var params = "&coordinates=" + latitude + "," + longitude + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo;
-		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
+		xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
 		xhttp.send();
 		i++;
 	});
