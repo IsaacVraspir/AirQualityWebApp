@@ -11,6 +11,14 @@ function initMap() {
 	var geocoder = new google.maps.Geocoder;
 	var infowindow = new google.maps.InfoWindow;
 	
+	marker.addListener('mouseover', function() {
+		infowindow.open(map, this);
+	});
+
+	marker.addListener('mouseout', function() {
+		infowindow.close();
+	});
+	
 	map.addListener('center_changed', function() {
 		var mylat = map.getCenter().lat();
 		var mylng = map.getCenter().lng();
@@ -104,13 +112,6 @@ function initMap() {
 		var latitude = parseFloat(document.getElementById("latitude").value);
 		var longitude = parseFloat(document.getElementById("longitude").value);
 		
-		/*
-		document.getElementById("valueFrom").addEventListener("input", function() {
-			var valueFrom = document.getElementById("valueFrom").value;
-			console.log(valueFrom);
-			var valueTo = document.getElementById("valueTo").value;
-		});
-		*/
 		var valueFrom = parseFloat(document.getElementById("valueFrom").value);
 		console.log(valueFrom);
 		var valueTo = parseFloat(document.getElementById("valueTo").value);
