@@ -98,9 +98,13 @@ function initMap() {
 		var latitude = parseFloat(document.getElementById("latitude").value);
 		var longitude = parseFloat(document.getElementById("longitude").value);
 		
-		var valueFrom = document.getElementById("valueFrom").value;
-		console.log(valueFrom);
-		var valueTo = document.getElementById("valueTo").value;
+		var valueFrom;
+		var valueTo;
+		document.getElementById("valueFrom").addEventListener("input", function() {
+			valueFrom = document.getElementById("valueFrom").value;
+			console.log(valueFrom);
+			valueTo = document.getElementById("valueTo").value;
+		});
 		
 		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo;
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
@@ -167,6 +171,9 @@ function initMap() {
 		i++;
 	});
 }
+
+
+
 
 
 function geocodeLatLng(geocoder, map, infowindow, latitude, longitude) {
