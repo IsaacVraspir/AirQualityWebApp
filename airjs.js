@@ -23,7 +23,7 @@ function initMap() {
 			   var obj = JSON.parse(xhttp.responseText);
 			   var table = document.getElementById("currentTable");
 			   
-				if(obj.results[0] && obj.results[0].coordinates && obj.results[0].city){
+				if(obj.results[0] && obj.results[0].coordinates && obj.results[0].city && obj.results[0].measurements){
 					table.innerHTML = "";
 					var row = table.insertRow(0);
 					row.insertCell(0).outerHTML = "<th>City</th>";
