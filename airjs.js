@@ -1,7 +1,4 @@
 function initMap() {
-	var geocoder = new google.maps.Geocoder;
-	var infowindow = new google.maps.InfoWindow;
-	
 		var uluru = {lat: 44.96, lng: -93.26};
 		var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 10,
@@ -110,6 +107,8 @@ function initMap() {
 			});
 		});
 		
+		var geocoder = new google.maps.Geocoder;
+		var infowindow = new google.maps.InfoWindow;
 		geocodeLatLng(geocoder, map, infowindow);
 }
 
