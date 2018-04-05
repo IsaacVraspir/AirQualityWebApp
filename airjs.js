@@ -82,7 +82,9 @@ function initMap() {
 		// distance = circle radius from center to Northeast corner of bounds
 		var radiusMiles = r * Math.acos(Math.sin(lat1) * Math.sin(lat2) + 
 		  Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1));		
-		var radiusMeters = radiusMiles * 1609.34;		
+		var radiusMeters = radiusMiles * 1609.34;	
+
+		//Chemical Options
 		var sel = document.getElementById("optionList");
 		var txt= sel.options[sel.selectedIndex].text;
 		
@@ -138,7 +140,11 @@ function initMap() {
 			}
 		};
 		
-		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt;
+		//Chemical Options
+		var sel = document.getElementById("optionList");
+		var txt= sel.options[sel.selectedIndex].text;
+		
+		var params = "&coordinates=" + latitude + "," + longitude + "&parameter=" + txt;
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
 		i++;
