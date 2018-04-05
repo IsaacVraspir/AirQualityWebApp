@@ -145,20 +145,22 @@ function addMarker(){
 					cell = row.insertCell(3);
 					cell.innerHTML = obj.results[0].measurements[0].value;
 				}else{
-					var row = table.insertRow(0);
-					row.insertCell(0).outerHTML = "<th>Marker City</th>";
-					row.insertCell(1).outerHTML = "<th>Marker Latitude</th>";
-					row.insertCell(2).outerHTML = "<th>Marker Longitude</th>";
-					row.insertCell(3).outerHTML = "<th>Marker Measurement</th>";
-					row = table.insertRow(1);
-					var cell = row.insertCell(0);
-					cell.innerHTML = "Unknown";
-					cell = row.insertCell(1);
-					cell.innerHTML = "Unknown";
-					cell = row.insertCell(2);
-					cell.innerHTML = "Unknown";
-					cell = row.insertCell(3);
-					cell.innerHTML = "Unknown";	
+					if(document.getElementById("myTable").rows.length == 0){
+						var row = table.insertRow(0);
+						row.insertCell(0).outerHTML = "<th>Marker City</th>";
+						row.insertCell(1).outerHTML = "<th>Marker Latitude</th>";
+						row.insertCell(2).outerHTML = "<th>Marker Longitude</th>";
+						row.insertCell(3).outerHTML = "<th>Marker Measurement</th>";
+						row = table.insertRow(1);
+						var cell = row.insertCell(0);
+						cell.innerHTML = "Unknown";
+						cell = row.insertCell(1);
+						cell.innerHTML = "Unknown";
+						cell = row.insertCell(2);
+						cell.innerHTML = "Unknown";
+						cell = row.insertCell(3);
+						cell.innerHTML = "Unknown";	
+					}
 				}
 			}
 		};
