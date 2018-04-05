@@ -260,10 +260,10 @@ function addMarker(){
 			xhttp.send();
 		});
 		*/
-		geocodeLatLng(geocoder, map, infowindow);
+		//geocodeLatLng(geocoder, map, infowindow);
 		
 	//}
-}
+//}
 
 function geocodeLatLng(geocoder, map, infowindow) {
 	var latitude = parseFloat(document.getElementById("latitude").value);
