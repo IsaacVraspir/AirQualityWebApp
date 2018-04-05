@@ -30,6 +30,7 @@ function initMap() {
 					row.insertCell(1).outerHTML = "<th>Latitude</th>";
 					row.insertCell(2).outerHTML = "<th>Longitude</th>";
 					row.insertCell(3).outerHTML = "<th>Measurement</th>";
+					row.insertCell(4).outerHTML = "<th>Chemical</th>";
 					console.log(obj.results.length);
 					for(var i = 0; i < obj.results.length; i++){
 						row = table.insertRow(i+1);
@@ -41,6 +42,8 @@ function initMap() {
 						cell.innerHTML = obj.results[i].coordinates.longitude;
 						cell = row.insertCell(3);
 						cell.innerHTML = obj.results[i].measurements[0].value;
+						cell = row.insertCell(4);
+						cell.innerHTML = obj.results[i].measurements[0].parameter;
 						
 						var uluru = {lat: obj.results[i].coordinates.latitude, lng: obj.results[i].coordinates.longitude};
 						var marker = new google.maps.Marker({
@@ -55,6 +58,7 @@ function initMap() {
 					row.insertCell(1).outerHTML = "<th>Latitude</th>";
 					row.insertCell(2).outerHTML = "<th>Longitude</th>";
 					row.insertCell(3).outerHTML = "<th>Measurement</th>";
+					row.insertCell(4).outerHTML = "<th>Chemical</th>";
 					row = table.insertRow(1);
 					var cell = row.insertCell(0);
 					cell.innerHTML = "Unknown";
@@ -63,6 +67,8 @@ function initMap() {
 					cell = row.insertCell(2);
 					cell.innerHTML = "Unknown";
 					cell = row.insertCell(3);
+					cell.innerHTML = "Unknown";
+					cell = row.insertCell(4);
 					cell.innerHTML = "Unknown";
 				}  
 			}
@@ -126,6 +132,8 @@ function initMap() {
 					cell.innerHTML = obj.results[0].coordinates.longitude;
 					cell = row.insertCell(3);
 					cell.innerHTML = obj.results[0].measurements[0].value;
+					cell = row.insertCell(4);
+					cell.innerHTML = obj.results[0].measurements[0].parameter;
 				}else{
 					row = table.insertRow(i);
 					var cell = row.insertCell(0);
@@ -135,6 +143,8 @@ function initMap() {
 					cell = row.insertCell(2);
 					cell.innerHTML = "Unknown";
 					cell = row.insertCell(3);
+					cell.innerHTML = "Unknown";
+					cell = row.insertCell(4);
 					cell.innerHTML = "Unknown";
 				}  
 			}
