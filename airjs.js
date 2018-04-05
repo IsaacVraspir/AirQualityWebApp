@@ -132,7 +132,7 @@ function initMap() {
 					row.insertCell(0).outerHTML = "<th>Marker City</th>";
 					row.insertCell(1).outerHTML = "<th>Marker Latitude</th>";
 					row.insertCell(2).outerHTML = "<th>Marker Longitude</th>";
-					row.insertCell(1).outerHTML = "<th>Marker Measurement</th>";
+					row.insertCell(3).outerHTML = "<th>Marker Measurement</th>";
 					row = table.insertRow(1);
 					var cell = row.insertCell(0);
 					cell.innerHTML = obj.results[0].city;
@@ -173,7 +173,7 @@ function initMap() {
 						row.insertCell(0).outerHTML = "<th>City</th>";
 						row.insertCell(1).outerHTML = "<th>Latitude</th>";
 						row.insertCell(2).outerHTML = "<th>Longitude</th>";
-						row.insertCell(1).outerHTML = "<th>Measurement</th>";
+						row.insertCell(3).outerHTML = "<th>Measurement</th>";
 						console.log(obj.results.length);
 						for(var i = 0; i < obj.results.length; i++){
 							row = table.insertRow(i+1);
