@@ -32,7 +32,7 @@ function initMap() {
 				   var obj = JSON.parse(xhttp.responseText);
 				   var table = document.getElementById("currentTable");
 				   
-				    if(obj.results[0] && obj.results[0].coordinates.latitude){
+				    if(obj.results[0] && obj.results[0].coordinates){
 						table.innerHTML = "";
 						var row = table.insertRow(0);
 						row.insertCell(0).outerHTML = "<th>City</th>";
