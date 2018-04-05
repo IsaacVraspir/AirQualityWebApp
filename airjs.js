@@ -9,7 +9,7 @@ function initMap() {
 	if(isNaN(latitude) == true && isNaN(longitude) == true){ //Before adding a marker
 		var uluru = {lat: 44.96, lng: -93.26};
 		var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 4,
+				zoom: 10,
 				center: uluru
 		});
 		//var marker = new google.maps.Marker({
@@ -161,7 +161,32 @@ function initMap() {
 			position: uluru,
 			map: map
 		})
-		map.addListener('center_changed', function() {
+		
+		var xhttp = new XMLHttpRequest(); //Marker info request
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			   // Typical action to be performed when the document is ready:
+			   console.log(xhttp.responseText);
+			   var obj = JSON.parse(xhttp.responseText);
+			   var table = document.getElementById("myTable");
+			   
+			   if(typeof obj.results[0].city !== 'undefined'){
+				    table.innerHTML = "";
+					var row = table.insertRow(0);
+					row.insertCell(0).outerHTML = "<th>Marker City</th>";
+					row.insertCell(1).outerHTML = "<th>Marker Measurement</th>";
+					row = table.insertRow(1);
+					var cell = row.insertCell(0);
+					cell.innerHTML = obj.results[0].city;
+			   }
+			}
+		};
+		var params = "&coordinates=" + latitude + "," + longitude; //Marker uses default radius
+		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
+		xhttp.send();
+		
+		
+		map.addListener('center_changed', function() { //update lat and long boxes as the map is panned
 			var mylat = map.getCenter().lat();
 			var mylng = map.getCenter().lng();
 			document.getElementById("latitude").value = mylat;
@@ -237,9 +262,9 @@ function initMap() {
 			xhttp.send();
 		});
 		
-		
 		geocodeLatLng(geocoder, map, infowindow);
 		
+		/*
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
@@ -284,7 +309,7 @@ function initMap() {
 		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters;
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
-		
+		*/
 	}
 }
 
