@@ -142,7 +142,7 @@ function initMap() {
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
 		i++;
-	}
+	});
 }
 
 
