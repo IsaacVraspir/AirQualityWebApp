@@ -76,7 +76,6 @@ function initMap() {
 			var latitude = parseFloat(document.getElementById("latitude").value);
 			var longitude = parseFloat(document.getElementById("longitude").value);
 			
-			
 			var bounds = map.getBounds();
 			var center = bounds.getCenter();
 			var ne = bounds.getNorthEast();
@@ -109,10 +108,10 @@ function initMap() {
 		var latitude = parseFloat(document.getElementById("latitude").value);
 		var longitude = parseFloat(document.getElementById("longitude").value);
 		var uluru = {lat: latitude, lng: longitude};
-		var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 4,
-				center: uluru
-		});
+		//var map = new google.maps.Map(document.getElementById('map'), {
+		//		zoom: 4,
+		//		center: uluru
+		//});
 		var marker = new google.maps.Marker({
 			position: uluru,
 			map: map
@@ -127,7 +126,6 @@ function initMap() {
 			   var table = document.getElementById("myTable");
 			   
 			   if(obj.results[0] && obj.results[0].coordinates && obj.results[0].city){
-				    table.innerHTML = "";
 					var row = table.insertRow(0);
 					row.insertCell(0).outerHTML = "<th>Marker City</th>";
 					row.insertCell(1).outerHTML = "<th>Marker Latitude</th>";
@@ -143,7 +141,6 @@ function initMap() {
 					cell = row.insertCell(3);
 					cell.innerHTML = obj.results[0].measurements[0].value;
 				}else{
-					table.innerHTML = "";
 					var row = table.insertRow(0);
 					row.insertCell(0).outerHTML = "<th>Marker City</th>";
 					row.insertCell(1).outerHTML = "<th>Marker Latitude</th>";
