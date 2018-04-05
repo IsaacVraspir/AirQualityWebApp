@@ -105,9 +105,9 @@ function initMap() {
 			var valueTo = document.getElementById("valueTo").value;
 		});
 		*/
-		var valueFrom = document.getElementById("valueFrom").value;
+		var valueFrom = parseFloat(document.getElementById("valueFrom").value);
 		console.log(valueFrom);
-		var valueTo = document.getElementById("valueTo").value;
+		var valueTo = parseFloat(document.getElementById("valueTo").value);
 		
 		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo;
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
