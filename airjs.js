@@ -132,15 +132,26 @@ function initMap() {
 				   var obj = JSON.parse(xhttp.responseText);
 				   var table = document.getElementById("currentTable");
 				   
-				   if(typeof obj.results[0].city !== 'undefined'){
+				   if(obj.results[0]){
 						table.innerHTML = "";
 						var row = table.insertRow(0);
 						row.insertCell(0).outerHTML = "<th>City</th>";
 						row.insertCell(1).outerHTML = "<th>Measurement</th>";
-						row = table.insertRow(1);
-						var cell = row.insertCell(0);
-						cell.innerHTML = obj.results[0].city;
-				   }else{
+						console.log(obj.results.length);
+						for(var i = 0; i < obj.results.length; i++){
+							row = table.insertRow(i+1);
+							var cell = row.insertCell(0);
+							cell.innerHTML = obj.results[i].city;
+							cell = row.insertCell(1);
+							cell.innerHTML = obj.results[i].measurements[0].value;
+							
+							var uluru = {lat: obj.results[i].coordinates.latitude, lng: obj.results[i].coordinates.longitude};
+							var marker = new google.maps.Marker({
+								position: uluru,
+								map: map
+							})
+						}	
+					}else{
 						table.innerHTML = "";
 						var row = table.insertRow(0);
 						row.insertCell(0).outerHTML = "<th>City</th>";
