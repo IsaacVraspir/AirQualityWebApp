@@ -136,7 +136,7 @@ function initMap() {
 					cell.innerHTML = "Unknown";
 				}  
 			}
-		});
+		};
 		
 		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt;
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
