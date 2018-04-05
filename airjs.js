@@ -68,25 +68,21 @@ function initMap() {
 				}
 			};
 			
+			//RADIUS CALCULATION
 			var bounds = map.getBounds();
 			var center = bounds.getCenter();
 			var ne = bounds.getNorthEast();
-
 			// r = radius of the earth in statute miles
 			var r = 3963.0;  
-
 			// Convert lat or lng from decimal degrees into radians (divide by 57.2958)
 			var lat1 = center.lat() / 57.2958; 
 			var lon1 = center.lng() / 57.2958;
 			var lat2 = ne.lat() / 57.2958;
 			var lon2 = ne.lng() / 57.2958;
-
 			// distance = circle radius from center to Northeast corner of bounds
 			var radiusMiles = r * Math.acos(Math.sin(lat1) * Math.sin(lat2) + 
-			  Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1));
-			
-			var radiusMeters = radiusMiles * 1609.34;
-			
+			  Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1));		
+			var radiusMeters = radiusMiles * 1609.34;		
 			var sel = document.getElementById("optionList");
 			var txt= sel.options[sel.selectedIndex].text;
 			
@@ -102,22 +98,53 @@ function initMap() {
 		map.addListener('click', function(event){
 			var latitude = event.latLng.lat();
 			var longitude = event.latLng.lng();
+			var i = 0;
 			var uluru = {lat: latitude, lng: longitude};
 			var marker = new google.maps.Marker({
 				position: uluru,
 				map: map
 			});
 			geocodeLatLng(geocoder, map, infowindow, latitude, longitude);
-		});
-		
-		
-		
+			
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				   // Typical action to be performed when the document is ready:
+				   console.log(xhttp.responseText);
+				   var obj = JSON.parse(xhttp.responseText);
+				   var table = document.getElementById("myTable");
+				   
+				    if(obj.results[0] && obj.results[0].coordinates && obj.results[0].city){
+						row = table.insertRow(i);
+						var cell = row.insertCell(0);
+						cell.innerHTML = obj.results[0].city;
+						cell = row.insertCell(1);
+						cell.innerHTML = obj.results[0].coordinates.latitude;
+						cell = row.insertCell(2);
+						cell.innerHTML = obj.results[0].coordinates.longitude;
+						cell = row.insertCell(3);
+						cell.innerHTML = obj.results[0].measurements[0].value;
+					}else{
+						row = table.insertRow(i);
+						var cell = row.insertCell(0);
+						cell.innerHTML = "Unknown";
+						cell = row.insertCell(1);
+						cell.innerHTML = "Unknown";
+						cell = row.insertCell(2);
+						cell.innerHTML = "Unknown";
+						cell = row.insertCell(3);
+						cell.innerHTML = "Unknown";
+					}  
+				}
+			});
+			
+			var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt;
+			xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
+			xhttp.send();
 }
 
 
 function geocodeLatLng(geocoder, map, infowindow, latitude, longitude) {
-	//var latitude = parseFloat(document.getElementById("latitude").value);
-	//var longitude = parseFloat(document.getElementById("longitude").value);
 	var latlng = {lat: latitude, lng: longitude};
 
 	geocoder.geocode({'location': latlng}, function(results, status) {
