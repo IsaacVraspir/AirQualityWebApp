@@ -115,7 +115,7 @@ function initMap() {
 }
 
 
-function geocodeLatLng(geocoder, map, infowindow, latitude, longitude {
+function geocodeLatLng(geocoder, map, infowindow, latitude, longitude) {
 	//var latitude = parseFloat(document.getElementById("latitude").value);
 	//var longitude = parseFloat(document.getElementById("longitude").value);
 	var latlng = {lat: latitude, lng: longitude};
