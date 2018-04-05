@@ -136,6 +136,12 @@ function initMap() {
 					row = table.insertRow(1);
 					var cell = row.insertCell(0);
 					cell.innerHTML = obj.results[0].city;
+					cell = row.insertCell(1);
+					cell.innerHTML = obj.results[i].coordinates.latitude;
+					cell = row.insertCell(2);
+					cell.innerHTML = obj.results[i].coordinates.longitude;
+					cell = row.insertCell(3);
+					cell.innerHTML = obj.results[i].measurements[0].value;
 			   }
 			}
 		};
