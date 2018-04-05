@@ -6,7 +6,20 @@ function initMap() {
 	var infowindow = new google.maps.InfoWindow;
 	
 	
-	//if(isNaN(latitude) == true && isNaN(longitude) == true){ //Before adding a marker
+	if(isNaN(latitude) == true && isNaN(longitude) == true){
+		var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 10,
+				center: uluru
+		});
+		
+		map.addListener('center_changed', function() {
+			var mylat = map.getCenter().lat();
+			var mylng = map.getCenter().lng();
+			document.getElementById("latitude").value = mylat;
+			document.getElementById("longitude").value = mylng;
+		});
+	}
+	else{	//Before adding a marker
 		var uluru = {lat: 44.96, lng: -93.26};
 		var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 10,
@@ -103,15 +116,11 @@ function initMap() {
 			xhttp.send();
 		});
 		geocodeLatLng(geocoder, map, infowindow);
-		
-}	
-		
-//	}else{ //After adding a marker
-function addMarker(){
-		var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 10,
-				center: uluru
-		});
+	}	
+}
+/*		
+	}else{ //After adding a marker
+
 		var latitude = parseFloat(document.getElementById("latitude").value);
 		var longitude = parseFloat(document.getElementById("longitude").value);
 		var uluru = {lat: latitude, lng: longitude};
