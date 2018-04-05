@@ -126,7 +126,7 @@ function initMap() {
 			   var obj = JSON.parse(xhttp.responseText);
 			   var table = document.getElementById("myTable");
 			   
-			   if(typeof obj.results[0].city !== 'undefined'){
+			   if(obj.results[0] && obj.results[0].coordinates && obj.results[0].city){
 				    table.innerHTML = "";
 					var row = table.insertRow(0);
 					row.insertCell(0).outerHTML = "<th>Marker City</th>";
@@ -134,26 +134,32 @@ function initMap() {
 					row.insertCell(2).outerHTML = "<th>Marker Longitude</th>";
 					row.insertCell(3).outerHTML = "<th>Marker Measurement</th>";
 					row = table.insertRow(1);
-					if(obj.results[0] && obj.results[0].coordinates && obj.results[0].city){
-						var cell = row.insertCell(0);
-						cell.innerHTML = obj.results[0].city;
-						cell = row.insertCell(1);
-						cell.innerHTML = obj.results[0].coordinates.latitude;
-						cell = row.insertCell(2);
-						cell.innerHTML = obj.results[0].coordinates.longitude;
-						cell = row.insertCell(3);
-						cell.innerHTML = obj.results[0].measurements[0].value;
-					}else{
-						var cell = row.insertCell(0);
-						cell.innerHTML = "Unknown";
-						cell = row.insertCell(1);
-						cell.innerHTML = "Unknown";
-						cell = row.insertCell(2);
-						cell.innerHTML = "Unknown";
-						cell = row.insertCell(3);
-						cell.innerHTML = "Unknown";	
+					var cell = row.insertCell(0);
+					cell.innerHTML = obj.results[0].city;
+					cell = row.insertCell(1);
+					cell.innerHTML = obj.results[0].coordinates.latitude;
+					cell = row.insertCell(2);
+					cell.innerHTML = obj.results[0].coordinates.longitude;
+					cell = row.insertCell(3);
+					cell.innerHTML = obj.results[0].measurements[0].value;
+				}else{
+					table.innerHTML = "";
+					var row = table.insertRow(0);
+					row.insertCell(0).outerHTML = "<th>Marker City</th>";
+					row.insertCell(1).outerHTML = "<th>Marker Latitude</th>";
+					row.insertCell(2).outerHTML = "<th>Marker Longitude</th>";
+					row.insertCell(3).outerHTML = "<th>Marker Measurement</th>";
+					row = table.insertRow(1);
+					var cell = row.insertCell(0);
+					cell.innerHTML = "Unknown";
+					cell = row.insertCell(1);
+					cell.innerHTML = "Unknown";
+					cell = row.insertCell(2);
+					cell.innerHTML = "Unknown";
+					cell = row.insertCell(3);
+					cell.innerHTML = "Unknown";	
 					}
-			   }
+			    }
 			}
 		};
 		var params = "&coordinates=" + latitude + "," + longitude; //Marker uses default radius
