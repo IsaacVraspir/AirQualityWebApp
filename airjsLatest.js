@@ -17,7 +17,7 @@ function initMap() {
 			gestureHandling: 'greedy'
 	});
 	
-	var heatmap = new google.maps.visualization.HeatmapLayer({
+	var heatMap = new google.maps.visualization.HeatmapLayer({
 		data: [],
 		map: null
 	});
@@ -167,9 +167,9 @@ function initMap() {
 	
 	document.getElementById("heatButton").addEventListener('click', function(){
 		if(heatMap.getMap()){
-			heatmap.setMap(null);
+			heatMap.setMap(null);
 		}else{
-			heatmap.setMap(map);
+			heatMap.setMap(map);
 		}
     });
 	
