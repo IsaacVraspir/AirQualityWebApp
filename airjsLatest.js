@@ -20,7 +20,7 @@ function initMap() {
 	var infowindow = new google.maps.InfoWindow;
 	
 	
-	var heatMapData;
+	var heatMapData = [];
 	
 	map.addListener('center_changed', function() {
 		var mylat = map.getCenter().lat();
@@ -68,8 +68,9 @@ function initMap() {
 							map: map
 						})
 						
-						var obj2 = {lat: obj.results[i].coordinates.latitude, lng: obj.results[i].coordinates.longitude, weight: obj.results[i].measurements[0].value};
-						heatMapData = Object.assign(heatMapData, obj2);
+						var obj2 = {location: new google.maps.LatLng(obj.results[i].coordinates.latitude, obj.results[i].coordinates.longitude), weight: obj.results[i].measurements[0].value};
+						heatMapData.push(obj2);
+						//heatMapData = Object.assign(heatMapData, obj2);
 						console.log(heatMapData);
 						
 						var message = obj.results[i].measurements[0].value;
