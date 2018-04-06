@@ -64,6 +64,7 @@ function initMap() {
 							map: map
 						})
 						var message = obj.results[i].measurements[0].value;
+						message = message.toString();
 						addInfoWindow(marker, message)
 						/*
 						marker.addListener('mouseover', function() {
