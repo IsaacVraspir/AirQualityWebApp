@@ -66,20 +66,6 @@ function initMap() {
 						var message = obj.results[i].value;
 						message = message.toString();
 						addInfoWindow(marker, message);
-						/*
-						marker.addListener('mouseover', function() {
-							var contentString = obj.results[0].value;
-							contentString = contentString.toString();
-							var infowindow = new google.maps.InfoWindow({
-								content: contentString
-							});	
-							infowindow.open(map, this)
-						});
-
-						marker.addListener('mouseout', function() {
-							infowindow.close();
-						});
-						*/
 					}	
 				}else{
 					table.innerHTML = "";
@@ -142,7 +128,7 @@ function initMap() {
 		xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
 		xhttp.send();
 	});
-	
+	/*
 	document.getElementById("latitude").addEventListener('change', function (){
 		latitude = parseFloat(document.getElementById("latitude").value);
 		longitude = parseFloat(document.getElementById("longitude").value);
@@ -153,7 +139,7 @@ function initMap() {
 		longitude = parseFloat(document.getElementById("longitude").value);
 		map.setCenter({lat:latitude, lng:longitude});
 	});
-	
+	*/
 	document.getElementById("optionList").addEventListener('change', function(){
 		initMap();
 	});
