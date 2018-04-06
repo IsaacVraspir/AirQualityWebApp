@@ -156,6 +156,7 @@ function initMap() {
 		xhttp.send();
 	});
 	
+	/*
 	document.getElementById("optionList").addEventListener('change', function(){
 		var uluru = {lat: 44.96, lng: -93.26};
 		map = new google.maps.Map(document.getElementById('map'), {
@@ -164,7 +165,7 @@ function initMap() {
 				gestureHandling: 'greedy'
 		});
 	});
-		
+	*/	
 	document.getElementById("latitude").addEventListener('change', function (){
 		latitude = parseFloat(document.getElementById("latitude").value);
 		longitude = parseFloat(document.getElementById("longitude").value);
@@ -266,6 +267,9 @@ function initMap() {
 	});
 }
 
+document.getElementById("optionList").addEventListener('change', function(){
+	initMap();
+});
 
 function geocodeLatLng(geocoder, map, infowindow, latitude, longitude) {
 	var latlng = {lat: latitude, lng: longitude};
