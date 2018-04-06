@@ -63,7 +63,9 @@ function initMap() {
 							position: uluru,
 							map: map
 						})
-						
+						var message = obj.results[i].measurements[0].value;
+						addInfoWindow(marker, message)
+						/*
 						marker.addListener('mouseover', function() {
 							//var contentString = obj.results[0].value;
 							//var contentString = obj.results[i].measurements[0].value;
@@ -87,7 +89,8 @@ function initMap() {
 						marker.addListener('mouseout', function() {
 							infowindow.close();
 						});
-					}	
+						*/
+					}
 				}else{
 					table.innerHTML = "";
 					var row = table.insertRow(0);
@@ -152,6 +155,8 @@ function initMap() {
 		xhttp.send();
 	});
 	
+	
+	
 	document.getElementById("latitude").addEventListener('change', function (){
 		latitude = parseFloat(document.getElementById("latitude").value);
 		longitude = parseFloat(document.getElementById("longitude").value);
@@ -162,6 +167,16 @@ function initMap() {
 		longitude = parseFloat(document.getElementById("longitude").value);
 		map.setCenter({lat:latitude, lng:longitude});
 	});
+	
+	function addInfoWindow(marker, message) {
+		var infoWindow = new google.maps.InfoWindow({
+			content: message
+		});
+
+		google.maps.event.addListener(marker, 'click', function () {
+			infoWindow.open(map, marker);
+		});
+	}
 	
 	map.addListener('click', function(event){
 		var latitude = event.latLng.lat();
@@ -242,6 +257,7 @@ function initMap() {
 		i++;
 	});
 }
+
 
 function geocodeLatLng(geocoder, map, infowindow, latitude, longitude) {
 	var latlng = {lat: latitude, lng: longitude};
