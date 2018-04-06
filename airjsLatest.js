@@ -182,7 +182,7 @@ function initMap() {
 			   var obj = JSON.parse(xhttp.responseText);
 			   var table = document.getElementById("myTable");
 			   
-				if(obj.results[0] && obj.results[0].coordinates && obj.results[0].city && && obj.results[0].measurements){
+				if(obj.results[0] && obj.results[0].coordinates && obj.results[0].city && obj.results[0].measurements){
 					row = table.insertRow(i);
 					var cell = row.insertCell(0);
 					cell.innerHTML = obj.results[0].city;
