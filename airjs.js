@@ -33,8 +33,7 @@ function initMap() {
 			   console.log(xhttp.responseText);
 			   var obj = JSON.parse(xhttp.responseText);
 			   var table = document.getElementById("currentTable");
-			   //console.log(obj.results[0]);
-			   //console.log(obj.results[0].coordinates);
+			   
 				if(obj.results[0] && obj.results[0].coordinates){ //&& obj.results[0].city && obj.results[0].value){
 					table.innerHTML = "";
 					var row = table.insertRow(0);
@@ -126,6 +125,7 @@ function initMap() {
 		console.log(dateFrom);
 		
 		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
+		console.log("https://api.openaq.org/v1/measurements?"+params);
 		xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
 		xhttp.send();
 	});
