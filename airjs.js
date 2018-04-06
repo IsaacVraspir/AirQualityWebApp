@@ -1,5 +1,6 @@
 function initMap() {
 	var d = new Date();
+	d = d.getDate()-1;
 	var n = d.toISOString().substring(0, 10);
 	document.getElementById("dateFrom").value = n;
 	
@@ -164,7 +165,7 @@ function initMap() {
 			position: uluru,
 			map: map
 		});
-		
+	/*	
 		marker.addListener('mouseover', function() {
 			infowindow.open(map, this);
 		});
@@ -173,7 +174,7 @@ function initMap() {
 			infowindow.close();
 		});
 		
-		
+	*/	
 		geocodeLatLng(geocoder, map, infowindow, latitude, longitude);
 		
 		var xhttp = new XMLHttpRequest();
