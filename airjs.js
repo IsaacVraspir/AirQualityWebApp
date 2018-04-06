@@ -4,7 +4,7 @@ function initMap() {
 	n = n.substring(0, 10);
 	document.getElementById("dateFrom").value = n;
 	
-	var dtwo = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+	var dtwo = new Date(new Date().getTime() + 24 * 60 * 60 * 1001);
 	var ntwo = d.toISOString();
 	ntwo = ntwo.substring(0, 10);
 	document.getElementById("dateTo").value = ntwo;
