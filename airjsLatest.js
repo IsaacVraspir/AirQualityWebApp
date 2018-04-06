@@ -186,9 +186,9 @@ function initMap() {
 					cell.innerHTML = obj.results[0].coordinates.longitude;
 					cell = row.insertCell(3);
 					//cell.innerHTML = obj.results[0].value;
-					cell.innerHTML = obj.results[i].measurements[0].value;
+					cell.innerHTML = obj.results[0].measurements[0].value;
 					cell = row.insertCell(4);
-					cell.innerHTML = obj.results[i].measurements[0].parameter;
+					cell.innerHTML = obj.results[0].measurements[0].parameter;
 					//cell.innerHTML = obj.results[0].parameter;
 				}else{
 					row = table.insertRow(i);
