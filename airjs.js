@@ -128,7 +128,7 @@ function initMap() {
 		xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
 		xhttp.send();
 	});
-	/*
+	
 	document.getElementById("latitude").addEventListener('change', function (){
 		latitude = parseFloat(document.getElementById("latitude").value);
 		longitude = parseFloat(document.getElementById("longitude").value);
@@ -139,7 +139,7 @@ function initMap() {
 		longitude = parseFloat(document.getElementById("longitude").value);
 		map.setCenter({lat:latitude, lng:longitude});
 	});
-	*/
+	
 	document.getElementById("optionList").addEventListener('change', function(){
 		initMap();
 	});
