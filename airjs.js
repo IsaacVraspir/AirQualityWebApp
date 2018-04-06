@@ -59,6 +59,7 @@ function initMap() {
 						})
 						
 						marker.addListener('mouseover', function() {
+							/*
 							var xhttp = new XMLHttpRequest();
 							xhttp.onreadystatechange = function() {
 								if (this.readyState == 4 && this.status == 200) {
@@ -81,7 +82,7 @@ function initMap() {
 							var params = "&coordinates=" + latitude + "," + longitude + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
 							xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
 							xhttp.send();
-							
+							*/
 							var contentString = obj.results[0].value;
 							contentString.toString();
 							var infowindow = new google.maps.InfoWindow({
