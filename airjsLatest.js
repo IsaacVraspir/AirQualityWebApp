@@ -72,7 +72,7 @@ function initMap() {
 							for (var j = 0; j < obj.results.length; j++){
 								//if(table.row[j].cell[1].innerHTML == marker.getPosition().lat() && table.row[j].cell[2].innerHTML == marker.getPosition().lng()){
 								if(obj.results[j].coordinates.latitude == marker.getPosition().lat() && obj.results[j].coordinates.longitude == marker.getPosition().lng()){
-									contentString = table.row[j].cell[3].innerHTML;
+									contentString = obj.results[j].measurements[0].value;
 									break;
 								}
 							}
