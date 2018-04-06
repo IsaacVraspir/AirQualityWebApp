@@ -15,6 +15,7 @@ function initMap() {
 			center: uluru,
 			gestureHandling: 'greedy'
 	});
+	
 	var geocoder = new google.maps.Geocoder;
 	var infowindow = new google.maps.InfoWindow;
 	
@@ -66,31 +67,6 @@ function initMap() {
 						var message = obj.results[i].measurements[0].value;
 						message = message.toString();
 						addInfoWindow(marker, message);
-						/*
-						marker.addListener('mouseover', function() {
-							//var contentString = obj.results[0].value;
-							//var contentString = obj.results[i].measurements[0].value;
-							//var contentString = table.row[i+1].cell[3].innerHTML;
-							var contentString = "";
-							//for (var j = 0; j < obj.results.length; j++){
-								//if(table.row[j].cell[1].innerHTML == marker.getPosition().lat() && table.row[j].cell[2].innerHTML == marker.getPosition().lng()){
-							//	if(obj.results[j].coordinates.latitude == marker.getPosition().lat() && obj.results[j].coordinates.longitude == marker.getPosition().lng()){
-							//		contentString = obj.results[j].measurements[0].value;
-							//		break;
-							//	}
-							//}
-							contentString = this.getPosition().lat();
-							contentString = contentString.toString();
-							var infowindow = new google.maps.InfoWindow({
-								content: contentString
-							});	
-							infowindow.open(map, this)
-						});
-
-						marker.addListener('mouseout', function() {
-							infowindow.close();
-						});
-						*/
 					}
 				}else{
 					table.innerHTML = "";
@@ -156,16 +132,6 @@ function initMap() {
 		xhttp.send();
 	});
 	
-	/*
-	document.getElementById("optionList").addEventListener('change', function(){
-		var uluru = {lat: 44.96, lng: -93.26};
-		map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 10,
-				center: uluru,
-				gestureHandling: 'greedy'
-		});
-	});
-	*/	
 	document.getElementById("latitude").addEventListener('change', function (){
 		latitude = parseFloat(document.getElementById("latitude").value);
 		longitude = parseFloat(document.getElementById("longitude").value);
@@ -200,16 +166,6 @@ function initMap() {
 			position: uluru,
 			map: map
 		});
-	/*	
-		marker.addListener('mouseover', function() {
-			infowindow.open(map, this);
-		});
-
-		marker.addListener('mouseout', function() {
-			infowindow.close();
-		});
-		
-	*/	
 		geocodeLatLng(geocoder, map, infowindow, latitude, longitude);
 		
 		var xhttp = new XMLHttpRequest();
