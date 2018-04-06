@@ -220,7 +220,7 @@ function initMap() {
 		
 		//var params = "&coordinates=" + latitude + "," + longitude + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
 		//xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
-		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt;
+		var params = "&coordinates=" + latitude + "," + longitude + "&parameter=" + txt;
 		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
 		i++;
