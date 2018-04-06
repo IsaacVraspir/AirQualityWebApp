@@ -1,11 +1,12 @@
 function initMap() {
 	var d =  new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
+	//var d = new Date();
 	var n = d.toISOString();
 	n = n.substring(0, 10);
 	document.getElementById("dateFrom").value = n;
 	
 	var dtwo = new Date();
-	var ntwo = d.toISOString();
+	var ntwo = dtwo.toISOString();
 	ntwo = ntwo.substring(0, 10);
 	document.getElementById("dateTo").value = ntwo;
 	
