@@ -66,7 +66,8 @@ function initMap() {
 						
 						marker.addListener('mouseover', function() {
 							//var contentString = obj.results[0].value;
-							var contentString = obj.results[i].measurements[0].value;
+							//var contentString = obj.results[i].measurements[0].value;
+							var contentString = table.row[i+1].cell[3].innerHTML;
 							contentString = contentString.toString();
 							var infowindow = new google.maps.InfoWindow({
 								content: contentString
