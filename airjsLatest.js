@@ -34,7 +34,7 @@ function initMap() {
 			   var obj = JSON.parse(xhttp.responseText);
 			   var table = document.getElementById("currentTable");
 			   
-				if(obj.results[0] && obj.results[0].coordinates && obj.results[0].city && obj.results[0].value){
+				if(obj.results[0] && obj.results[0].coordinates && obj.results[0].city && obj.results[0].measurements){
 					table.innerHTML = "";
 					var row = table.insertRow(0);
 					row.insertCell(0).outerHTML = "<th>City</th>";
@@ -65,7 +65,8 @@ function initMap() {
 						})
 						
 						marker.addListener('mouseover', function() {
-							var contentString = obj.results[0].value;
+							//var contentString = obj.results[0].value;
+							var contentString = obj.results[i].measurements[0].value;
 							contentString = contentString.toString();
 							var infowindow = new google.maps.InfoWindow({
 								content: contentString
@@ -181,7 +182,7 @@ function initMap() {
 			   var obj = JSON.parse(xhttp.responseText);
 			   var table = document.getElementById("myTable");
 			   
-				if(obj.results[0] && obj.results[0].coordinates && obj.results[0].city){
+				if(obj.results[0] && obj.results[0].coordinates && obj.results[0].city && && obj.results[0].measurements){
 					row = table.insertRow(i);
 					var cell = row.insertCell(0);
 					cell.innerHTML = obj.results[0].city;
