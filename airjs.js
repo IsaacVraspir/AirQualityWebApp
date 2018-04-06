@@ -135,12 +135,12 @@ function initMap() {
 	document.getElementById("latitude").addEventListener('change', function (){
 		latitude = parseFloat(document.getElementById("latitude").value);
 		longitude = parseFloat(document.getElementById("longitude").value);
-		map.setCenter({lat:latitude, lng:longitude);
+		map.setCenter({lat:latitude, lng:longitude});
 	});
 	document.getElementById("longitude").addEventListener('change', function (){
 		latitude = parseFloat(document.getElementById("latitude").value);
 		longitude = parseFloat(document.getElementById("longitude").value);
-		map.setCenter({lat:latitude, lng:longitude);
+		map.setCenter({lat:latitude, lng:longitude});
 	});
 	
 	map.addListener('click', function(event){
