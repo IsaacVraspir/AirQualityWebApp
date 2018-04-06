@@ -134,8 +134,10 @@ function initMap() {
 		var dateFrom = document.getElementById("dateFrom").value;
 		console.log(dateFrom);
 		
-		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
-		xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
+		//var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
+		//xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
+		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt;
+		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
 	});
 	
@@ -219,8 +221,10 @@ function initMap() {
 		var dateTo = document.getElementById("dateTo").value;
 		var dateFrom = document.getElementById("dateFrom").value;
 		
-		var params = "&coordinates=" + latitude + "," + longitude + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
-		xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
+		//var params = "&coordinates=" + latitude + "," + longitude + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
+		//xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
+		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt;
+		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
 		xhttp.send();
 		i++;
 	});
