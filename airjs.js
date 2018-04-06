@@ -1,6 +1,5 @@
 function initMap() {
-	var d = new Date();
-	d = d.getDate()-1;
+	var d =  new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
 	var n = d.toISOString();
 	n = n.substring(0, 10);
 	document.getElementById("dateFrom").value = n;
