@@ -18,7 +18,7 @@ function initMap() {
 	});
 	
 	var heatmap = new google.maps.visualization.HeatmapLayer({
-		data: null,
+		data: [],
 		map: null
 	});
 		
