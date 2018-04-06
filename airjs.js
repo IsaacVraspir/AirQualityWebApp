@@ -82,10 +82,11 @@ function initMap() {
 							xhttp.send();
 							
 							var contentString = obj.results[0].value;
+							contentString.toString();
 							var infowindow = new google.maps.InfoWindow({
 								content: contentString
 							});	
-							infowindow.open(map, marker)
+							infowindow.open(map, this)
 							
 						});
 
