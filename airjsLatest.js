@@ -47,6 +47,7 @@ function initMap() {
 					row.insertCell(3).outerHTML = "<th>Measurement</th>";
 					row.insertCell(4).outerHTML = "<th>Chemical</th>";
 					console.log(obj.results.length);
+					heatMapData = [];
 					for(var i = 0; i < obj.results.length; i++){
 						row = table.insertRow(i+1);
 						var cell = row.insertCell(0);
