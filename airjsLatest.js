@@ -16,6 +16,12 @@ function initMap() {
 			center: uluru,
 			gestureHandling: 'greedy'
 	});
+	
+	var heatmap = new google.maps.visualization.HeatmapLayer({
+		data: null,
+		map: null
+	});
+		
 	var geocoder = new google.maps.Geocoder;
 	var infowindow = new google.maps.InfoWindow;
 	
@@ -78,6 +84,8 @@ function initMap() {
 						message = message.toString();
 						addInfoWindow(marker, message);
 					}
+					heatmap.setData(heatMapData);
+					
 				}else{
 					table.innerHTML = "";
 					var row = table.insertRow(0);
@@ -156,6 +164,14 @@ function initMap() {
 	document.getElementById("optionList").addEventListener('change', function(){
 		initMap();
 	});
+	
+	function toggleHeatmap() {
+		if(heatMap.getMap()){
+			heatmap.setMap(null);
+		}else{
+			heatmap.setMap(map);
+		}
+    }
 	
 	function addInfoWindow(marker, message) {
 		var infoWindow = new google.maps.InfoWindow({
