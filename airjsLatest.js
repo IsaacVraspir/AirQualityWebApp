@@ -165,7 +165,7 @@ function initMap() {
 		initMap();
 	});
 	
-	function toggleHeatmap() {
+	document.getElementById("heatButton").addEventListener('click', function(){
 		if(heatMap.getMap()){
 			heatmap.setMap(null);
 		}else{
