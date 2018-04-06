@@ -171,7 +171,7 @@ function initMap() {
 		}else{
 			heatmap.setMap(map);
 		}
-    }
+    });
 	
 	function addInfoWindow(marker, message) {
 		var infoWindow = new google.maps.InfoWindow({
