@@ -68,7 +68,7 @@ function initMap() {
 							map: map
 						})
 						
-						var obj2 = {lat: obj.results[i].coordinates.latitude, lng: obj.results[i].coordinates.longitude, weight: obj.results[i].measurements[0].value);
+						var obj2 = {lat: obj.results[i].coordinates.latitude, lng: obj.results[i].coordinates.longitude, weight: obj.results[i].measurements[0].value};
 						heatMapData = Object.assign(heatMapData, obj2);
 						console.log(heatMapData);
 						
