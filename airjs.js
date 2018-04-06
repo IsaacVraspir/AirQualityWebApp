@@ -134,11 +134,11 @@ function initMap() {
 		var dateFrom = document.getElementById("dateFrom").value;
 		console.log(dateFrom);
 		
-		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt; //+ "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
-		xhttp.open("GET", "https://api.openaq.org/v1/latest?"+params, true);
+		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
+		xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
 		xhttp.send();
 	});
-	
+	/*
 	document.getElementById("latitude").addEventListener('change', function (){
 		latitude = parseFloat(document.getElementById("latitude").value);
 		longitude = parseFloat(document.getElementById("longitude").value);
@@ -149,7 +149,7 @@ function initMap() {
 		longitude = parseFloat(document.getElementById("longitude").value);
 		map.setCenter({lat:latitude, lng:longitude});
 	});
-	
+	*/
 	map.addListener('click', function(event){
 		var latitude = event.latLng.lat();
 		var longitude = event.latLng.lng();
