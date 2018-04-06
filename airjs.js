@@ -11,7 +11,7 @@ function initMap() {
 	
 	var uluru = {lat: 44.96, lng: -93.26};
 	var map = new google.maps.Map(document.getElementById('map'), {
-			zoom: 10,
+			zoom: 13,
 			center: uluru,
 			gestureHandling: 'greedy'
 	});
@@ -63,7 +63,10 @@ function initMap() {
 							position: uluru,
 							map: map
 						})
-						
+						var message = obj.results[i].value;
+						message = message.toString();
+						addInfoWindow(marker, message);
+						/*
 						marker.addListener('mouseover', function() {
 							var contentString = obj.results[0].value;
 							contentString = contentString.toString();
@@ -76,6 +79,7 @@ function initMap() {
 						marker.addListener('mouseout', function() {
 							infowindow.close();
 						});
+						*/
 					}	
 				}else{
 					table.innerHTML = "";
@@ -150,6 +154,20 @@ function initMap() {
 		map.setCenter({lat:latitude, lng:longitude});
 	});
 	
+	document.getElementById("optionList").addEventListener('change', function(){
+		initMap();
+	});
+	
+	function addInfoWindow(marker, message) {
+		var infoWindow = new google.maps.InfoWindow({
+			content: message
+		});
+
+		google.maps.event.addListener(marker, 'click', function () {
+			infoWindow.open(map, marker);
+		});
+	}
+	
 	map.addListener('click', function(event){
 		var latitude = event.latLng.lat();
 		var longitude = event.latLng.lng();
@@ -158,17 +176,7 @@ function initMap() {
 		var marker = new google.maps.Marker({
 			position: uluru,
 			map: map
-		});
-	/*	
-		marker.addListener('mouseover', function() {
-			infowindow.open(map, this);
-		});
-
-		marker.addListener('mouseout', function() {
-			infowindow.close();
-		});
-		
-	*/	
+		});	
 		geocodeLatLng(geocoder, map, infowindow, latitude, longitude);
 		
 		var xhttp = new XMLHttpRequest();
