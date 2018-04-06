@@ -33,7 +33,8 @@ function initMap() {
 			   console.log(xhttp.responseText);
 			   var obj = JSON.parse(xhttp.responseText);
 			   var table = document.getElementById("currentTable");
-			   
+			   console.log(obj.results[0]);
+			   console.log(obj.results[0].coordinates);
 				if(obj.results[0] && obj.results[0].coordinates){ //&& obj.results[0].city && obj.results[0].value){
 					table.innerHTML = "";
 					var row = table.insertRow(0);
