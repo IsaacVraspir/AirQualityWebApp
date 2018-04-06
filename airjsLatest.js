@@ -74,6 +74,7 @@ function initMap() {
 									contentString = table.row[j].cell[3].innerHTML;
 									break;
 								}
+							}
 							contentString = contentString.toString();
 							var infowindow = new google.maps.InfoWindow({
 								content: contentString
