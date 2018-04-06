@@ -67,7 +67,13 @@ function initMap() {
 						marker.addListener('mouseover', function() {
 							//var contentString = obj.results[0].value;
 							//var contentString = obj.results[i].measurements[0].value;
-							var contentString = table.row[i+1].cell[3].innerHTML;
+							//var contentString = table.row[i+1].cell[3].innerHTML;
+							var contentString;
+							for (var j = 0; j < obj.results.length; j++){
+								if(table.row[j].cell[1].innerHTML == marker.getPosition().lat() && table.row[j].cell[2].innerHTML == marker.getPosition().lng()){
+									contentString = table.row[j].cell[3].innerHTML;
+									break;
+								}
 							contentString = contentString.toString();
 							var infowindow = new google.maps.InfoWindow({
 								content: contentString
