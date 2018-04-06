@@ -84,7 +84,7 @@ function initMap() {
 						message = message.toString();
 						addInfoWindow(marker, message);
 					}
-					heatmap.setData(heatMapData);
+					heatMap.setData(heatMapData);
 					
 				}else{
 					table.innerHTML = "";
