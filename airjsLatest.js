@@ -177,6 +177,10 @@ function initMap() {
 		map.setCenter({lat:latitude, lng:longitude});
 	});
 	
+	document.getElementById("optionList").addEventListener('change', function(){
+		initMap();
+	});
+	
 	function addInfoWindow(marker, message) {
 		var infoWindow = new google.maps.InfoWindow({
 			content: message
@@ -266,10 +270,6 @@ function initMap() {
 		i++;
 	});
 }
-
-document.getElementById("optionList").addEventListener('change', function(){
-	initMap();
-});
 
 function geocodeLatLng(geocoder, map, infowindow, latitude, longitude) {
 	var latlng = {lat: latitude, lng: longitude};
