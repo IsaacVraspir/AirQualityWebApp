@@ -144,6 +144,8 @@ function initMap() {
 	});
 	
 	document.getElementById("optionList").addEventListener('change', function(){
+		var table = document.getElementById("myTable");
+		table.innerHTML = "";
 		initMap();
 	});
 	
