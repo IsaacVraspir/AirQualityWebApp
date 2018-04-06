@@ -69,13 +69,14 @@ function initMap() {
 							//var contentString = obj.results[i].measurements[0].value;
 							//var contentString = table.row[i+1].cell[3].innerHTML;
 							var contentString = "";
-							for (var j = 0; j < obj.results.length; j++){
+							//for (var j = 0; j < obj.results.length; j++){
 								//if(table.row[j].cell[1].innerHTML == marker.getPosition().lat() && table.row[j].cell[2].innerHTML == marker.getPosition().lng()){
-								if(obj.results[j].coordinates.latitude == marker.getPosition().lat() && obj.results[j].coordinates.longitude == marker.getPosition().lng()){
-									contentString = obj.results[j].measurements[0].value;
-									break;
-								}
-							}
+							//	if(obj.results[j].coordinates.latitude == marker.getPosition().lat() && obj.results[j].coordinates.longitude == marker.getPosition().lng()){
+							//		contentString = obj.results[j].measurements[0].value;
+							//		break;
+							//	}
+							//}
+							contentString = this.getPosition().lat();
 							contentString = contentString.toString();
 							var infowindow = new google.maps.InfoWindow({
 								content: contentString
