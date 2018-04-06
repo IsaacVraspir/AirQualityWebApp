@@ -8,6 +8,7 @@ function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 10,
 			center: uluru
+			gestureHandling: 'greedy'
 	});
 	var geocoder = new google.maps.Geocoder;
 	var infowindow = new google.maps.InfoWindow;
