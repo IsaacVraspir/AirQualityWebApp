@@ -19,6 +19,9 @@ function initMap() {
 	var geocoder = new google.maps.Geocoder;
 	var infowindow = new google.maps.InfoWindow;
 	
+	
+	var heatMapData;
+	
 	map.addListener('center_changed', function() {
 		var mylat = map.getCenter().lat();
 		var mylng = map.getCenter().lng();
@@ -64,6 +67,11 @@ function initMap() {
 							position: uluru,
 							map: map
 						})
+						
+						var obj2 = {lat: obj.results[i].coordinates.latitude, lng: obj.results[i].coordinates.longitude, weight: obj.results[i].measurements[0].value);
+						heatMapData = Object.assign(heatMapData, obj2);
+						console.log(heatMapData);
+						
 						var message = obj.results[i].measurements[0].value;
 						message = message.toString();
 						addInfoWindow(marker, message);
