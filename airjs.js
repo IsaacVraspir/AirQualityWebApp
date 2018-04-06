@@ -83,7 +83,8 @@ function initMap() {
 							xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
 							xhttp.send();
 							*/
-							var contentString = obj.results[0].value;
+					
+							var contentString = obj.results[i].value;
 							contentString = contentString.toString();
 							var infowindow = new google.maps.InfoWindow({
 								content: contentString
