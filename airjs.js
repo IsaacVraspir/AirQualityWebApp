@@ -118,13 +118,6 @@ function initMap() {
 		var latitude = parseFloat(document.getElementById("latitude").value);
 		var longitude = parseFloat(document.getElementById("longitude").value);
 		
-		document.getElementById("latitude").addEventListener('change', function (){
-			latitude = parseFloat(document.getElementById("latitude").value);
-		});
-		document.getElementById("longitude").addEventListener('change', function (){
-			latitude = parseFloat(document.getElementById("longitude").value);
-		});
-		
 		var valueFrom = parseFloat(document.getElementById("valueFrom").value);
 		console.log(valueFrom);
 		var valueTo = parseFloat(document.getElementById("valueTo").value);
@@ -137,6 +130,17 @@ function initMap() {
 		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
 		xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
 		xhttp.send();
+	});
+	
+	document.getElementById("latitude").addEventListener('change', function (){
+		latitude = parseFloat(document.getElementById("latitude").value);
+		longitude = parseFloat(document.getElementById("longitude").value);
+		map.setCenter({lat:latitude, lng:longitude);
+	});
+	document.getElementById("longitude").addEventListener('change', function (){
+		latitude = parseFloat(document.getElementById("latitude").value);
+		longitude = parseFloat(document.getElementById("longitude").value);
+		map.setCenter({lat:latitude, lng:longitude);
 	});
 	
 	map.addListener('click', function(event){
