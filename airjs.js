@@ -84,7 +84,7 @@ function initMap() {
 							xhttp.send();
 							*/
 							var contentString = obj.results[0].value;
-							contentString.toString();
+							contentString = contentString.toString();
 							var infowindow = new google.maps.InfoWindow({
 								content: contentString
 							});	
