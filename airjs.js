@@ -1,7 +1,8 @@
 function initMap() {
 	var d = new Date();
 	d = d.getDate()-1;
-	var n = d.toISOString().substring(0, 10);
+	var n = d.toISOString();
+	n = n.substring(0, 10);
 	document.getElementById("dateFrom").value = n;
 	
 	var uluru = {lat: 44.96, lng: -93.26};
