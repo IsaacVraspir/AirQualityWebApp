@@ -58,7 +58,35 @@ function initMap() {
 						})
 						
 						marker.addListener('mouseover', function() {
-							infowindow.open(map, this);
+							var xhttp = new XMLHttpRequest();
+							xhttp.onreadystatechange = function() {
+								if (this.readyState == 4 && this.status == 200) {
+								   // Typical action to be performed when the document is ready:
+								   console.log(xhttp.responseText);
+								   var obj = JSON.parse(xhttp.responseText);
+								}
+							}
+							//Chemical Options
+							var sel = document.getElementById("optionList");
+							var txt= sel.options[sel.selectedIndex].text;
+							
+							var valueFrom = document.getElementById("valueFrom").value;
+							var valueTo = document.getElementById("valueTo").value;
+							
+							var dateTo = new Date();
+							var n = dateTo.toISOString();
+							var dateFrom = document.getElementById("dateFrom").value;
+							
+							var params = "&coordinates=" + latitude + "," + longitude + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
+							xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
+							xhttp.send();
+							
+							var contentString = obj.results[0].value;
+							var infowindow = new google.maps.InfoWindow({
+								content: contentString
+							});	
+							infowindow.open(map, marker)
+							
 						});
 
 						marker.addListener('mouseout', function() {
