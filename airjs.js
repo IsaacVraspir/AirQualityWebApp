@@ -4,7 +4,7 @@ function initMap() {
 	n = n.substring(0, 10);
 	document.getElementById("dateFrom").value = n;
 	
-	var dtwo = new Date();
+	var dtwo = new Date(new Date().getTime() + 24 * 60 * 60 * 1000));
 	var ntwo = d.toISOString();
 	ntwo = ntwo.substring(0, 10);
 	document.getElementById("dateTo").value = ntwo;
@@ -125,7 +125,7 @@ function initMap() {
 		console.log(dateFrom);
 		
 		var params = "&coordinates=" + latitude + "," + longitude + "&radius=" + radiusMeters + "&parameter=" + txt + "&value_from=" + valueFrom + "&value_to=" + valueTo + "&date_from=" + dateFrom + "&date_to=" + dateTo;
-		console.log("https://api.openaq.org/v1/measurements?"+params);
+		//console.log("https://api.openaq.org/v1/measurements?"+params);
 		xhttp.open("GET", "https://api.openaq.org/v1/measurements?"+params, true);
 		xhttp.send();
 	});

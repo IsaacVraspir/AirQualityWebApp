@@ -15,7 +15,6 @@ function initMap() {
 			center: uluru,
 			gestureHandling: 'greedy'
 	});
-	
 	var geocoder = new google.maps.Geocoder;
 	var infowindow = new google.maps.InfoWindow;
 	
